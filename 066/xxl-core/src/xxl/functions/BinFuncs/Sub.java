@@ -1,0 +1,44 @@
+package xxl.functions.BinFuncs;
+
+import xxl.functions.BinFunc;
+import xxl.structures.Content;
+import xxl.visitors.Visitor;
+
+/**
+ * Class representing a SUB function.
+ */
+public class Sub extends BinFunc {
+    
+    private Content _arg1 = null;
+    private Content _arg2 = null;
+
+    public Sub(Content arg1, Content arg2) {
+        super("SUB", arg1, arg2);
+        _arg1 = arg1;
+        _arg2 = arg2;
+    }
+
+    public String accept(Visitor v) {
+        return v.visitSUB(this);
+    }
+
+    public Content clone() {
+        Content content = new Sub(_arg1, _arg2);
+        return content;
+    }
+
+    @Override
+    public Content getArgument(int num){
+        if(num == 1) {
+            return _arg1;
+        }
+        else {
+            return _arg2;
+        }
+    }
+
+    @Override
+    public String calculate(String value1, String value2) {
+        return "" + (Integer.parseInt(value1) - Integer.parseInt(value2));
+    }
+}
