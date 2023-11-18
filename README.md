@@ -1,4 +1,4 @@
-## UML:
+## UML project:
 2/3
 
 ## Intermediate project:
